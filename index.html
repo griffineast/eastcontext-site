@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EastContext LLC — AI Solutions for Your Business</title>
+    <meta name="description" content="EastContext helps business owners and teams use AI more effectively with custom agents, MCP servers, and intelligent workflows.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue-slate: #4f6d7a;
+            --pale-sky: #c0d6df;
+            --alice-blue: #dbe9ee;
+            --smart-blue: #4a6fa5;
+            --baltic-blue: #166088;
+            --white: #ffffff;
+            --text-dark: #1a2a33;
+            --bg-dark: #0f1c24;
+            --bg-dark-alt: #162530;
+            --bg-card: #1a2e3a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--pale-sky);
+            line-height: 1.6;
+            background: var(--bg-dark);
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-dark);
+            border-bottom: 1px solid rgba(192, 214, 223, 0.1);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--alice-blue);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--pale-sky);
+        }
+
+        nav a {
+            color: var(--pale-sky);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-left: 2rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--alice-blue);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-dark-alt) 0%, #0d2a3a 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--alice-blue);
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--pale-sky);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--baltic-blue);
+            color: var(--white);
+            padding: 0.85rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .btn:hover {
+            background: var(--smart-blue);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--pale-sky);
+            border: 2px solid var(--pale-sky);
+            margin-left: 0.75rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--pale-sky);
+            color: var(--bg-dark);
+        }
+
+        /* Services */
+        .services {
+            padding: 5rem 2rem;
+            background: var(--bg-dark);
+        }
+
+        .services-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--smart-blue);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--alice-blue);
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(192, 214, 223, 0.08);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--baltic-blue);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: var(--white);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--alice-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--pale-sky);
+        }
+
+        /* How it works */
+        .how-it-works {
+            padding: 5rem 2rem;
+            background: var(--bg-dark-alt);
+        }
+
+        .how-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            background: var(--baltic-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .step-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--alice-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .step-content p {
+            color: var(--pale-sky);
+            font-size: 0.95rem;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 5rem 2rem;
+            background: var(--baltic-blue);
+            text-align: center;
+        }
+
+        .cta-inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cta p {
+            color: var(--pale-sky);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta .btn {
+            background: var(--white);
+            color: var(--baltic-blue);
+        }
+
+        .cta .btn:hover {
+            background: var(--alice-blue);
+        }
+
+        /* Footer */
+        footer {
+            background: #0a1218;
+            color: var(--pale-sky);
+            padding: 3rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand .logo {
+            color: var(--white);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand .logo span {
+            color: var(--pale-sky);
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            color: var(--pale-sky);
+            max-width: 300px;
+            opacity: 0.7;
+        }
+
+        .footer-contact h4 {
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-contact p,
+        .footer-contact a {
+            font-size: 0.85rem;
+            color: var(--pale-sky);
+            opacity: 0.7;
+            text-decoration: none;
+            display: block;
+            line-height: 1.7;
+        }
+
+        .footer-contact a:hover {
+            color: var(--alice-blue);
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 2rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(192, 214, 223, 0.15);
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--blue-slate);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav a {
+                margin-left: 1rem;
+            }
+
+            nav a:first-child {
+                margin-left: 0;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 0.75rem;
+            }
+
+            .hero .btn {
+                display: block;
+                margin: 0 auto;
+                max-width: 280px;
+            }
+
+            .hero .btn-outline {
+                margin-left: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">East<span>Context</span></a>
+            <nav>
+                <a href="#services">Services</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>Put AI to work for your business</h1>
+            <p>We help business owners and their teams use AI more effectively &mdash; connecting platforms like Claude to custom agents, MCP servers, and workflows tailored to how you operate.</p>
+            <a href="mailto:hello@eastcontext.com" class="btn">Get in Touch</a>
+            <a href="#services" class="btn btn-outline">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="services-inner">
+            <p class="section-label">What We Do</p>
+            <h2 class="section-title">AI that fits your workflow</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M20 21v-2a4 4 0 0 0-3-3.87M4 21v-2a4 4 0 0 1 3-3.87"/><circle cx="12" cy="17" r="4"/></svg>
+                    </div>
+                    <h3>Custom AI Agents</h3>
+                    <p>Purpose-built agents that handle tasks specific to your business &mdash; from customer support to data processing and beyond.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3>MCP Server Setup</h3>
+                    <p>Connect your AI applications to your tools and data sources through the Model Context Protocol for seamless integration.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+                    </div>
+                    <h3>Workflow Automation</h3>
+                    <p>Design and deploy intelligent workflows that connect AI capabilities to your existing business processes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="how-inner">
+            <p class="section-label">Our Process</p>
+            <h2 class="section-title">Simple to get started</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Discovery Call</h3>
+                        <p>We learn about your business, your team's day-to-day, and where AI can make the biggest impact.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Solution Design</h3>
+                        <p>We map out custom agents, MCP integrations, and workflows tailored to your specific needs.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Build &amp; Deploy</h3>
+                        <p>We build, test, and deploy your AI solutions &mdash; then make sure your team is confident using them.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <div class="cta-inner">
+            <h2>Ready to get started?</h2>
+            <p>Let's talk about how AI can work for your business. No jargon, no pressure &mdash; just a conversation.</p>
+            <a href="mailto:hello@eastcontext.com" class="btn">Email Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="#" class="logo">East<span>Context</span></a>
+                <p>Helping businesses connect AI to the way they actually work.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <a href="mailto:hello@eastcontext.com">hello@eastcontext.com</a>
+                <p>7901 4th St N # 33047</p>
+                <p>St. Petersburg, FL 33702</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 EastContext LLC. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
